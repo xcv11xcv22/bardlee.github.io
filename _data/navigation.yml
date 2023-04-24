@@ -1,7 +1,12 @@
 # main links
 main:
+
   - title: "Home"
     url: /
+  - title: "Tags"
+    url: /tags/
+  - title: "Years"
+    url: /year-archive/
   - title: "About"
     url: /about/
 
