@@ -2,7 +2,7 @@
 tags: [javascript]
 title: this與javascript
 created: '2023-05-16T19:52:10.241Z'
-modified: '2023-05-17T13:43:17.240Z'
+modified: '2023-05-17T14:07:31.710Z'
 ---
 
 # this與javascript
@@ -89,14 +89,12 @@ jack_1.fn1();
 輸出是jack
 
 jack_2.fn1();  
-剛剛有提過，this會指向最後呼叫的物件
-
+剛剛有提過，this會指向最後呼叫的物件  
 this 指向 jack_1  
 因此輸出也是jack
 
 jack_3.fn1();  
-這邊是在方法fn1裡面宣告fn2區域變數
-
+這邊是在方法fn1裡面宣告fn2區域變數  
 fn2取得jack_1.fn1的參考  
 但fn2並不是某物件的方法，所以this會指向global  
 global沒有定義name，因此是undefined
