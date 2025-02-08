@@ -1,7 +1,9 @@
 ---
-tags: [spider]
+tags:
+  - spider
 title: appium 爬蟲 permission denial
-
+created: 2025-02-08T17:00:00
+modified: 2025-02-08T17:00:00
 ---
 
 當你使用
@@ -18,7 +20,6 @@ adb shell dumpsys window | grep -E 'mCurrentFocus|mFocusedApp'
 adb logcat -s actionmanager
 ```
 再次開啟APP 這次就能抓取正確的activity
-
 
 
 
