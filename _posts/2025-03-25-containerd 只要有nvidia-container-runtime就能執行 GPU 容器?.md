@@ -5,7 +5,7 @@ title: containerd 只要有nvidia-container-runtime就能執行 GPU 容器?
 created: 2025-03-25T17:00:00
 modified: 2025-03-25T17:00:00
 ---
-111
+
 當ctr 要執行 gpu 驗證時的注意事項
 
 這是一個非常關鍵的問題，簡單來說：
