@@ -1,0 +1,15 @@
+// 讓所有 pre/code 自動換行
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+// 適用於提示區塊（.notice 類別）
+.notice,
+.notice--danger,
+.notice--info,
+.notice--warning {
+  word-break: break-word;
+  white-space: normal;
+}
