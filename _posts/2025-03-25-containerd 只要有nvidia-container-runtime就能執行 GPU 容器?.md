@@ -48,22 +48,22 @@ OCI runtime create failed: ... unknown runtime
 
 
 📦 安裝與設定範例（Fedora）
-1. 安裝：
+####  1. 安裝：
 ```bash
 sudo dnf install -y nvidia-container-toolkit
 ```
 
 
 這同時會安裝 nvidia-container-runtime。
-2. 產生 containerd 設定（自動加到 config.toml）：
+####   2. 產生 containerd 設定（自動加到 config.toml）：
 ```bash
 sudo nvidia-ctk runtime configure --runtime=containerd
 ```
 
 
 這是 NVIDIA 提供的官方工具，用來安全地加設定。
-1. 重啟 containerd
-
+ 
+ 重啟 containerd 生效
 
 ```bash
 sudo systemctl restart containerd
