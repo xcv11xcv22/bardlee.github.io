@@ -25,7 +25,7 @@ React（使用 CRA 建立的）應用程式是前端靜態網站，它在 `npm r
 |React App 不同環境行為（如 API base URL）|❌ 否|必須在 build 時指定 `REACT_APP_ENV`|
 |Nginx 或後端應用的行為|✅ 可|可在 `docker run -e` 指定環境變數|
 
-
+react dockerfile
 ```dockerfile
 ARG REACT_APP_ENV=K8S
 
@@ -34,6 +34,9 @@ ENV REACT_APP_ENV=$REACT_APP_ENV
 
 RUN npm run build
 ```
+react  
+config.js  
+config.value.js  
 
 ```js
 import _configValueSwitch from './config.value';
@@ -80,9 +83,6 @@ config[key] = _valueSwitch(key);
 
 export default config;
 ```
-react  
-config.js  
-config.value.js  
 
 ```js
 import { keys } from './config';
