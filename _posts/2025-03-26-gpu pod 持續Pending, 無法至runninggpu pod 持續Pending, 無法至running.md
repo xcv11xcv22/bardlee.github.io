@@ -1,6 +1,6 @@
 ---
 tags:
-  - react
+  - k8s
 title: gpu pod 持續Pending, 無法至running
 created: 2025-03-26T:00:00
 modified: 2025-03-26T16:00:00
