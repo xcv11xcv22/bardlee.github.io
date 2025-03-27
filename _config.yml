@@ -20,9 +20,9 @@ title                    : "Bard的黃金屋"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Bard"
-description              : "你需要的"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+description              : "你需要的"     #https://xcv11xcv22.github.io/bardlee.github.io/
+url                      : "https://xcv11xcv22.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : "/bardlee.github.io" # the subpath of your site, e.g. "/blog"
 repository               : xcv11xcv22/bardlee.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/111.jpg"
