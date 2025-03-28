@@ -13,9 +13,29 @@ modified: 2025-03-27T12:00:00
 - 因此 `docker images` **無法看到** `containerd` 的映像，而 `containerd` 也**無法直接使用 Docker 的映像**。
     
 
+
+
 ### **如何管理 `containerd` 的映像**
 
+
 如果你的 Kubernetes 節點是使用 `containerd`，則應該改用 `crictl` 或 `nerdctl` 來管理映像，而不是 `docker`。
+
+crictl需要安裝，非內建指令
+```bash
+# 先去確認官方版本 https://github.com/containerd/nerdctl/releases
+VERSION=2.0.4
+
+curl -LO https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-${VERSION}-linux-amd64.tar.gz
+
+#解壓縮
+sudo tar -C /usr/local/bin -xzf nerdctl-${VERSION}-linux-amd64.tar.gz
+
+nerdctl --version
+
+# 輸出 nerdctl version 2.0.4
+
+```
+
 
 列出 containerd 中的映像
 ```bash
