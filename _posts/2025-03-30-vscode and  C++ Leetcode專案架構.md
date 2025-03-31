@@ -5,9 +5,11 @@ title: vscode and C++ Leetcode專案架構
 created: 2025-03-30T12:00:00
 modified: 2025-03-30T12:00:00
 ---
-C++ 的 workflow 要照顧的細節滿多
-個人寫Leetcode時 很多檔案需要手動加入不是很方便
-找到以下各種方法幫助開發時更加方便與自動化
+C++ 的 workflow 要照顧的細節滿多  
+
+個人寫Leetcode時 很多檔案需要手動加入不是很方便  
+
+找到以下各種方法幫助開發時更加方便與自動化  
 
 ## fedora安裝c++
 
