@@ -34,6 +34,28 @@ sudo dnf install gcc-c++
 ```bash
 g++ --version
 ```
+
+## windows安裝c++
+
+```powershell
+#預設會安裝 Ubuntu 子系統
+wsl --install
+```
+wsl -l -v 確認版本，建議使用 WSL 2  
+```bash
+sudo apt install g++
+
+sudo apt install cmake gdb
+```
+
+確認vscode 有裝 wsl的plugin  
+```bash
+wsl -d ubuntu #進入子系統
+#進入目錄後
+code . #即可以開啟vscode
+```
+
+
 2. 安裝 C++ 開發工具（可選）
 
 如果你需要完整的開發環境，包括 make、cmake、gdb（除錯器）等，可以安裝以下套件：
@@ -71,46 +93,84 @@ C_plus
     正確管理 .cpp, .o, .d 等中間與最終檔案
 
 ```makefile
-# ===== Compiler & Flags =====
+# ===== Compiler =====
+
 CXX = g++
-CXXFLAGS = -Wall -Wextra -O2 -g -std=c++17 -MMD -MP
+
+# ===== Default Mode =====
+
+MODE ?= debug
+
+# ===== Flags 根據 Mode 切換 =====
+
+ifeq ($(MODE),debug)
+
+    CXXFLAGS = -Wall -Wextra -O0 -g -std=c++17 -MMD -MP
+
+    TARGET = main_debug
+
+else ifeq ($(MODE),release)
+
+    CXXFLAGS = -Wall -Wextra -O2 -std=c++17 -MMD -MP
+
+    TARGET = main_release
+
+else
+
+    $(error MODE 必須是 debug 或 release)
+
+endif
 
 # ===== Auto Generate =====
+
 PROBLEMS_HEADER = problems.hpp
+
 GEN_SCRIPT = ./generate_problems_hpp.sh
 
 # ===== Source =====
+
 SRC = main.cpp $(wildcard problems/*/solution.cpp)
+
 OBJ = $(SRC:.cpp=.o)
+
 DEP = $(OBJ:.o=.d)
 
-TARGET = main
-
 # ===== Build Rules =====
+
 all: $(PROBLEMS_HEADER) $(TARGET)
 
 # 自動生成 problems.hpp
+
 $(PROBLEMS_HEADER):
-	$(GEN_SCRIPT)
+
+    $(GEN_SCRIPT)
 
 # link
+
 $(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@
+
+    $(CXX) $(OBJ) -o $@
 
 # build object
+
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+    $(CXX) $(CXXFLAGS) -c $< -o $@
 
 # 自動依賴
+
 -include $(DEP)
 
+# ===== Extra Targets =====
+
 clean:
-	rm -f $(OBJ) $(DEP) $(TARGET) $(PROBLEMS_HEADER)
+    rm -f $(OBJ) $(DEP) main_debug main_release $(PROBLEMS_HEADER)
 
 rebuild:
-	$(MAKE) clean
-	$(MAKE) all
 
+    $(MAKE) clean
+
+    $(MAKE) MODE=$(MODE)
 ```
 2️⃣ Wildcard + Pattern Matching
 ```makefile
@@ -205,51 +265,94 @@ CXXFLAGS = -MMD -MP
 launch.json：
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Debug LeetCode Solutions",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/main",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "Build with Makefile"
-        }
-    ]
+
+    "version": "0.2.0",
+
+    "configurations": [
+
+        {
+
+            "name": "Debug LeetCode Solutions",
+
+            "type": "cppdbg",
+
+            "request": "launch",
+
+            "program": "${workspaceFolder}/main_debug",
+
+            "args": [],
+
+            "stopAtEntry": false,
+
+            "cwd": "${workspaceFolder}",
+
+            "environment": [],
+
+            "externalConsole": false,
+
+            "MIMode": "gdb",
+
+            "preLaunchTask": "Build (Debug)",
+
+            "setupCommands": [
+
+                {
+
+                    "description": "Enable pretty-printing",
+
+                    "text": "-enable-pretty-printing",
+
+                    "ignoreFailures": true
+
+                }
+
+            ]
+
+        }
+
+    ]
+
 }
 
 ```
 tasks.json：
 ```json
 {
-    "tasks": [
-        {
-            "label": "Build with Makefile",
-            "type": "shell",
-            "command": "make",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": ["$gcc"],
-            "detail": "Use Makefile to compile all C++ solutions"
-        }
-    ],
-    "version": "2.0.0"
-}
 
+    "version": "2.0.0",
+    "tasks": [
+
+        {
+            "label": "Build (Debug)",
+
+            "type": "shell",
+
+            "command": "make MODE=debug",
+
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+
+            "problemMatcher": ["$gcc"]
+
+        },
+
+        {
+
+            "label": "Build (Release)",
+
+            "type": "shell",
+
+            "command": "make MODE=release",
+
+            "group": "build",
+
+            "problemMatcher": ["$gcc"]
+
+        }
+    ]
+}
 ```
 8️⃣ GDB Debugger
 
@@ -282,7 +385,7 @@ tasks.json：
 - Debug symbol control (`-g`)
 
 ## 執行
-因已在Makefile加入判斷,  若有更動, 執行make rebuild  
+因已在Makefile加入指令,  若有更動, 執行make rebuild  
 
 等同於make clean && make  
 
