@@ -187,6 +187,8 @@
   },
   "active": "1b90728b75272177",
   "lastOpenFiles": [
+    "2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器.md",
+    "2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器.md",
     "2025-03-27-OCI Image containerd image vs Docker image.md",
     "2025-03-30-vscode and  C++ Leetcode專案架構.md",
     "2025-03-26-gpu pod 持續Pending, 無法至runninggpu pod 持續Pending, 無法至running.md",
