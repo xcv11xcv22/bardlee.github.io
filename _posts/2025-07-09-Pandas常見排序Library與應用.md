@@ -1,6 +1,6 @@
 ---
 tags:
-  - Numpy
+  - [Pandas]
 title: Pandas常見排序Library與應用
 created: 2025-07-09T12:00:00
 modified: 2025-07-09T12:00:00
@@ -73,6 +73,53 @@ df = pd.DataFrame({
 df.sort_values(by='score', ascending=False).head(1)
 ```
 
+# 5. 群組的平均值與總體平均的比較
+
+```python
+import pandas as pd
+
+# 原始資料
+df = pd.DataFrame({
+    'name': ['Alice', 'Alice', 'Alice', 'Bob', 'Bob', 'Bob', 'Charlie', 'Charlie', 'Charlie'],
+    'subject': ['Math', 'English', 'Science'] * 3,
+    'score': [85, 90, 78, 88, 76, 92, 90, 85, 80]
+})
+
+# 1️⃣ 每位學生的平均分數
+student_avg = df.groupby('name')['score'].mean()
+print("=== 每位學生平均分數 ===")
+print(student_avg)
+print()
+
+# 2️⃣ 全班總平均（不分人、不分科目）
+overall_avg = df['score'].mean()
+print("=== 全班總平均 ===")
+print(overall_avg)
+print()
+
+# 3️⃣ 平均分數高於全班總平均的學生
+above_avg_students = student_avg[student_avg > overall_avg]
+print("=== 平均高於全班總平均的學生 ===")
+print(above_avg_students)
+
+```
+
+輸出
+```yaml
+=== 每位學生平均分數 ===
+name
+Alice      84.333333
+Bob        85.333333
+Charlie    85.000000
+Name: score, dtype: float64
+
+=== 全班總平均 ===
+85.55555555555556
+
+=== 平均高於全班總平均的學生 ===
+Series([], Name: score, dtype: float64)
+
+```
 
 #  Map vs Join vs Merge
 ##  三種方式的對應邏輯比較

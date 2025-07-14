@@ -1,6 +1,6 @@
 ---
 tags:
-  - C++
+  - [C++]
 title: vscode and C++ Leetcode專案架構
 created: 2025-03-30T12:00:00
 modified: 2025-03-30T12:00:00

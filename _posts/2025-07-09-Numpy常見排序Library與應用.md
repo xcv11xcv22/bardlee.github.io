@@ -1,6 +1,6 @@
 ---
 tags:
-  - Numpy
+  - [Numpy]
 title: Numpy常見排序Library與應用
 created: 2025-07-09T12:00:00
 modified: 2025-07-09T12:00:00
