@@ -4,32 +4,32 @@
     "type": "split",
     "children": [
       {
-        "id": "0fdffc6f1b846251",
+        "id": "b86038780e61bc0f",
         "type": "tabs",
         "children": [
           {
-            "id": "c7e942afe9bb2da7",
+            "id": "1678d35ee7ddc170",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "2025-07-15-Fedora41 升版 42 的大災難錯誤.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
               "title": "2025-07-15-Fedora41 升版 42 的大災難錯誤"
             },
-            "group": "f3ef0b0f8f71991d"
+            "group": "479fa48b7b025a0f"
           }
         ]
       },
       {
-        "id": "3993fa640b444ef2",
+        "id": "16f701e714240037",
         "type": "tabs",
         "children": [
           {
-            "id": "ef81033095c3e910",
+            "id": "86925ffe4ce104f1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -41,7 +41,7 @@
               "icon": "lucide-file",
               "title": "2025-07-15-Fedora41 升版 42 的大災難錯誤"
             },
-            "group": "f3ef0b0f8f71991d"
+            "group": "479fa48b7b025a0f"
           }
         ]
       }
@@ -185,8 +185,9 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "c7e942afe9bb2da7",
+  "active": "7666c3927cb96e79",
   "lastOpenFiles": [
+    "2025-07-15-Fedora41 升版 42 的大災難錯誤.md",
     "_site/2025-07-15-Fedora41 升版 42 的大災難錯誤.html",
     "_site/2025-07-10-Cookie劫持的對應.html",
     "_site/2025-07-09-Python 快速與合併排序對照.html",
@@ -197,9 +198,7 @@
     "_site/2025-03-26-multiprocessing vs pytorch.html",
     "_site/2025-03-26-gpu pod 持續Pending, 無法至runninggpu pod 持續Pending, 無法至running.html",
     "_site/2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器.html",
-    "_site/2025-03-25-React開發之Docker build-time 和 run-time 的環境變數差異.html",
     "2025-07-10-Cookie劫持的對應.md",
-    "2025-07-15-Fedora41 升版 42 的大災難錯誤.md",
     "未命名.md",
     "2025-07-09-Python 快速與合併排序對照.md",
     "2025-03-27-OCI Image containerd image vs Docker image.md",
