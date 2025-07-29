@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-07-27-Java Lambda介紹.md",
+                "file": "2025-07-28-Fedora安裝Sql.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "2025-07-27-Java Lambda介紹"
+              "title": "2025-07-28-Fedora安裝Sql"
             },
             "group": "fc68aec672b42b93"
           }
@@ -34,12 +34,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-07-27-Java Lambda介紹.md",
+                "file": "2025-07-28-Fedora安裝Sql.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-27-Java Lambda介紹"
+              "title": "2025-07-28-Fedora安裝Sql"
             },
             "group": "fc68aec672b42b93"
           }
@@ -188,6 +188,19 @@
   "active": "4a5935a9e546db8a",
   "lastOpenFiles": [
     "2025-07-28-Java-Funcional Interface.md",
+    "2023-05-21-SQL-子查詢.md",
+    "2023-05-21-java-巢狀類別.md",
+    "2023-05-16-SQL-第二、三正規化.md",
+    "2023-05-04-spring boot-啟動資料庫.md",
+    "2023-05-09-SQL-第一正規化.md",
+    "2023-05-04-泛型定義.md",
+    "2023-04-29-python的繼承.md",
+    "2023-04-28-物件導向-多型.md",
+    "2023-04-20-物件導向-繼承.md",
+    "2023-03-27-深度搜索演算法.md",
+    "2023-04-09-物件導向.md",
+    "2023-04-19-Int與Byte互轉.md",
+    "2025-07-28-Fedora安裝Sql.md",
     "2025-07-27-Java Lambda介紹.md",
     "2025-07-22-安裝Docker的細節.md",
     "2025-07-27-Java-泛型.md",
@@ -209,19 +222,6 @@
     "未命名.md",
     "2025-03-27-OCI Image containerd image vs Docker image.md",
     "2025-03-30-vscode and  C++ Leetcode專案架構.md",
-    "2025-07-09-Numpy常見排序Library與應用.md",
-    "2025-07-09-Pandas常見排序Library與應用.md",
-    "2023-07-03-排序演算法.md",
-    "2023-06-09-96.Unique Binary Search Trees.md",
-    "2023-06-14-97.Interleaving String.md",
-    "2023-04-12-46.Permutations and 47. Permutations II.md",
-    "2023-04-17-物件導向-封裝.md",
-    "2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器.md",
-    "2025-03-26-gpu pod 持續Pending, 無法至runninggpu pod 持續Pending, 無法至running.md",
-    "2025-03-26-multiprocessing vs pytorch.md",
-    "2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器?.md",
-    "2025-03-25-React開發之Docker build-time 和 run-time 的環境變數差異.md",
-    "2023-07-12-裝飾器模式.md",
-    "2023-06-19-Word筆記.md"
+    "2025-07-09-Numpy常見排序Library與應用.md"
   ]
 }
