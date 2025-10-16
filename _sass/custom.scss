@@ -13,3 +13,19 @@ pre, code {
   word-break: break-word;
   white-space: normal;
 }
+
+
+.copy-code-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 5px 10px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.highlighter-rouge {
+  position: relative;
+}
