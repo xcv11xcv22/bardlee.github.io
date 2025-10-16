@@ -158,7 +158,7 @@ modified: 2025-10-15T12:00:00
 
 ### 上下文記憶
 
-<a href="https://img.bardcloud.online/ai_project/memory.png"><img src="https://img.bardcloud.online/ai_project/memory.png" alt="1760571024711" border="0"></a>
+<a href="https://img.bardcloud.online/ai_project/memory.png?n=1"><img src="https://img.bardcloud.online/ai_project/memory.png?n=1" alt="1760571024711" border="0"></a>
 
 ### IPhone17 rag回覆
 
