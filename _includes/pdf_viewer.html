@@ -1,0 +1,14 @@
+{% assign url = include.url | default: "" %}
+{% assign height = include.height | default: "820" %}
+
+{% if url == "" %}
+  <p style="color:#d00;">pdf_viewer: 缺少 url 參數</p>
+{% else %}
+  <iframe
+    width="100%" height="{{ height }}" style="border:0;"
+    src="https://img.bardcloud.online/assets/pdfjs/web/viewer.html?v=2&file={{ url | uri_escape }}#zoom=page-width&pagemode=thumbs">
+
+  </iframe>
+  <p><a href="{{ url }}" download>下載原始 PDF</a></p>
+{% endif %}
+
