@@ -105,7 +105,7 @@ modified: 2025-10-15T12:00:00
 
 - 實作 **RabbitMQ 串流回覆管線**（token 切片 → 併發傳遞 → 前端逐字渲染）。
     
-- 建立 **RAG 模組**（BGE-M3 嵌入、Chunk/Overlap、VCPG 索引與 rerank）。
+- 建立 **RAG 模組**（BGE-M3 嵌入、Chunk/Overlap、VCPG 索引）。
     
 - **微調本地 LLM（LoRA）**，強化專域問答與系統指令對齊。
 - 整合 **5 組自訓練的 ONNX GAN 模型** 至 Spring Boot，讓 Java 服務可直接以 **CPU 進行影像生成推論**，實現跨平台部署與低資源環境相容性
