@@ -188,8 +188,20 @@
   },
   "active": "9edcc65901344094",
   "lastOpenFiles": [
-    "2025-03-30-vscode and  C++ Leetcode專案架構.md",
+    "2025-07-22-安裝Docker的細節.md",
     "2025-10-15-AI聊天室專案-EchoMind介紹.md",
+    "2025-10-15-AI聊天室專案-EchoMind介紹 (複製).md",
+    "2025-07-28-Java-Funcional Interface.md",
+    "2025-07-28-Fedora安裝Sql.md",
+    "2025-07-27-Java-泛型.md",
+    "2025-07-27-Java Lambda介紹.md",
+    "2025-07-15-Fedora41 升版 42 的大災難錯誤.md",
+    "2025-07-10-Cookie劫持的對應.md",
+    "2025-07-09-Python 快速與合併排序對照.md",
+    "2025-07-09-Pandas常見排序Library與應用.md",
+    "2025-07-09-Numpy常見排序Library與應用.md",
+    "2025-03-25-containerd 只要有nvidia-container-runtime就能執行 GPU 容器.md",
+    "2025-03-30-vscode and  C++ Leetcode專案架構.md",
     "2025-03-27-OCI Image containerd image vs Docker image.md",
     "2025-03-26-gpu pod 持續Pending, 無法至runninggpu pod 持續Pending, 無法至running.md",
     "2025-03-26-multiprocessing vs pytorch.md",
@@ -202,9 +214,6 @@
     "未命名 2.md",
     "2023-04-09-物件導向.md",
     "未命名 1.md",
-    "未命名",
-    "2023-07-11-單例模式.md",
-    "2023-05-04-Java-泛型.md",
-    "2023-04-27-物件導向-介面.md"
+    "未命名"
   ]
 }
