@@ -113,6 +113,16 @@ modified: 2025-10-15T12:00:00
 
 ---
 
+## 架構圖
+
+<a href="https://img.bardcloud.online/ai_project/聊天室架構.png"><img src="https://img.bardcloud.online/ai_project/聊天室架構.png" alt="2" border="0"></a>
+
+<a href="https://img.bardcloud.online/ai_project/雙向聊天.png"><img src="https://img.bardcloud.online/ai_project/雙向聊天.png" alt="2" border="0"></a>
+
+<a href="https://img.bardcloud.online/ai_project/頭像由後端自動生成.png"><img src="https://img.bardcloud.online/ai_project/頭像由後端自動生成.png" alt="2" border="0"></a>
+
+<a href="https://img.bardcloud.online/ai_project/模組非同步處理.png"><img src="https://img.bardcloud.online/ai_project/AI 模組非同步處理.png" alt="2" border="0"></a>
+
 ## 🔑 開發重點與特色
 
 - 實作 **RabbitMQ 串流回覆管線**（token 切片 → 併發傳遞 → 前端逐字渲染）。
