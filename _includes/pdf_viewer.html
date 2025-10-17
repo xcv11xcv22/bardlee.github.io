@@ -1,14 +1,73 @@
 {% assign url = include.url | default: "" %}
-{% assign height = include.height | default: "820" %}
+{% assign height = include.height | default: "780" %}
 
 {% if url == "" %}
   <p style="color:#d00;">pdf_viewer: 缺少 url 參數</p>
 {% else %}
-  <iframe
-    width="100%" height="{{ height }}" style="border:0;"
-    src="https://img.bardcloud.online/assets/pdfjs/web/viewer.html?v=2&file={{ url | uri_escape }}#zoom=page-width&pagemode=thumbs">
+  {% capture viewer_url -%}
+https://img.bardcloud.online/assets/pdfjs/web/viewer.html?v=2&file={{ url | uri_escape }}#zoom=page-width&pagemode=thumbs&disableAutoFetch=true&disableStream=true
+{%- endcapture %}
+  {% capture wrap_id -%}pdfv-{{ url | uri_escape | slugify }}{%- endcapture %}
 
-  </iframe>
-  <p><a href="https://img.bardcloud.online{{ url }}" download>下載原始 PDF</a></p>
+  <div id="{{ wrap_id }}" class="pdfv-wrap" data-src="{{ viewer_url | strip }}" data-height="{{ height }}">
+    <div class="pdfv-placeholder" style="border:1px solid #e5e7eb; background:#f8f8f8; height: {{ height }}px; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+      <p style="margin:0 0 .5rem; color:#555;">PDF 尚未載入</p>
+      <button type="button" class="pdfv-load-btn" style="padding:.5rem 1rem; border:0; border-radius:.5rem; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        點我載入
+      </button>
+    </div>
+  </div>
+
+  <p style="margin:.5rem 0 1rem;">
+    <a href="https://img.bardcloud.online{{ url }}" download>下載原始 PDF</a>
+  </p>
+
+  <script>
+  (function(){
+    if (window.__pdfvInit) return; window.__pdfvInit = true;
+
+    function mountIframe(wrapper){
+      if (!wrapper || wrapper.dataset.mounted) return;
+      var src = wrapper.getAttribute('data-src');
+      var h   = wrapper.getAttribute('data-height') || '780';
+      var iframe = document.createElement('iframe');
+      iframe.width = '100%';
+      iframe.height = h;
+      iframe.style.border = '0';
+      iframe.src = src;
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+      wrapper.dataset.mounted = '1';
+    }
+
+    // 點擊「點我載入」按鈕
+    document.addEventListener('click', function(ev){
+      var btn = ev.target.closest('.pdfv-load-btn');
+      if (!btn) return;
+      var wrap = btn.closest('.pdfv-wrap');
+      mountIframe(wrap);
+    });
+
+    // 捲到可視範圍附近自動載入
+    function setupIO(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.pdfv-wrap').forEach(mountIframe);
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { mountIframe(e.target); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '200px' });
+      document.querySelectorAll('.pdfv-wrap').forEach(function(w){ io.observe(w); });
+    }
+
+    // 延後到 DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupIO);
+    } else {
+      setupIO();
+    }
+  })();
+  </script>
 {% endif %}
-

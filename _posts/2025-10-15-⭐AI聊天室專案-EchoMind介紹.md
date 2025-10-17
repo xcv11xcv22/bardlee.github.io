@@ -159,17 +159,28 @@ modified: 2025-10-15T12:00:00
 <a href="https://img.bardcloud.online/ai_project/2.png"><img src="https://img.bardcloud.online/ai_project/2.png" alt="2" border="0"></a>
 
 #### 畫柴犬教學
-1. 輸入「畫柴犬」至輸入框後送出
+
+1.輸入「畫柴犬」至輸入框後送出
+
 
 <a href="https://img.bardcloud.online/ai_project/draw1.png"><img src="https://img.bardcloud.online/ai_project/draw1.png" alt="draw1" border="0"></a>
 
-2. 可點擊圖放大檢視
+
+2.可點擊圖放大檢視
+
 
 <a href="https://img.bardcloud.online/ai_project/draw2.png"><img src="https://img.bardcloud.online/ai_project/draw2.png" alt="draw2" border="0"></a>
 
-3. 位於圖片右上角的X可關閉圖片
 
-<a href="https://img.bardcloud.online/ai_project/draw3.png"><img src="https://img.bardcloud.online/ai_project/draw3.png" alt="draw3" border="0"></a>
+3.位於圖片右上角的X可關閉圖片
+
+
+<a href="https://img.bardcloud.online/ai_project/draw3.png"><img src="https://img.bardcloud.online/ai_project/draw3.png" alt="draw3" border="0"
+height="927"
+  loading="lazy"
+  decoding="async"
+  fetchpriority="low"></a>
+
 
 ## 👍Demo
 
@@ -179,12 +190,18 @@ modified: 2025-10-15T12:00:00
 
 ### Onnx柴犬成像圖片
 
-![柴犬1](https://img.bardcloud.online/ai_project/dog1.jpg)
-![柴犬2](https://img.bardcloud.online/ai_project/dog2.png)
+![柴犬1](https://img.bardcloud.online/ai_project/dog1.jpg){:loading="lazy" decoding="async" height="832"}
+
+
+![柴犬2](https://img.bardcloud.online/ai_project/dog2.png){:loading="lazy" decoding="async" height="832"}
+
 
 ### 上下文記憶
 
-<a href="https://img.bardcloud.online/ai_project/memory.png?n=1"><img src="https://img.bardcloud.online/ai_project/memory.png?n=1" alt="1760571024711" border="0"></a>
+<a href="https://img.bardcloud.online/ai_project/memory.png?n=1"><img src="https://img.bardcloud.online/ai_project/memory.png?n=1" alt="上下文記憶" border="0" height="952"
+  loading="lazy"
+  decoding="async"
+  fetchpriority="low"></a>
 
 ### IPhone17 rag回覆
 
