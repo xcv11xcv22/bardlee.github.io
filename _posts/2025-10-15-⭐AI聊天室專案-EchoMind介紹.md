@@ -5,143 +5,121 @@ title: ⭐AI聊天室專案-EchoMind介紹
 created: 2025-10-15T12:00:00
 modified: 2025-10-15T12:00:00
 ---
-# 💬<a href="https://chat.bardcloud.online" target="_blank">AI聊天室專案-EchoMind連結</a>
 
-這是一個從零開發的全端即時聊天室，支援多人互動、私聊與 AI 對話。  
-系統整合 **微調後的本地 LLM**、**RAG 知識檢索**、**RabbitMQ 串流回覆**、**Redis 對話記憶**，  
-以及 **自訓練的 GAN 生成頭像模型**，實現智慧化且可擴充的對話體驗。
+## EchoMind：我獨立打造的 AI 實驗聊天室，想為聊天重新點火
 
----
+你還記得「聊天室」最熱鬧的時代嗎？  
+曾經的它，是交朋友、聊天、分享生活最溫暖的地方。如今，它幾乎被演算法社群取代。
 
-## ⭐ 主要功能
+我一直在想：  
+**如果把最新的 AI 技術放進聊天室，會不會重新變得好玩？**
 
-- **即時群聊／私訊**：  
-    以 WebSocket（STOMP over SockJS）實現雙向即時通訊，支援多人聊天室與私訊模式。
-    
-- **串流回覆 (Streaming)**：  
-    AI 回覆逐字顯示，透過 **RabbitMQ** 分段傳輸與整併，提升互動即時性與流暢度。
-    
-- **RAG 回覆 (Retrieval-Augmented Generation)**：  
-    採用 **BGE-M3 向量嵌入模型** 與 **VCPG 向量資料庫**，  
-    搭配 **Chunk 分段** 技術以維持語意連貫、提升檢索品質。  
-    目前 RAG 模組主要使用 **iPhone 17 相關問題資料集** 進行語意擴充與知識檢索測試。
-    
-- **LLM 微調 (Fine-tuning)**：  
-    以 **LoRA** 技術微調本地大型語言模型，使其更熟悉 **亞洲歷史、台灣文化與三國人物** 等內容領域。
-    
-- **四房間 × 四種風格大頭貼**：  
-    每個聊天室房間綁定一種主題風格（**貓咪、高塔、狗狗、企鵝**），  
-    系統以 **低解析 GAN 模型（64×64）** 生成圖像，作為即時頭像使用。
-    
-- **AI 指令畫圖**：  
-    當使用者輸入「畫柴犬」時，系統以 **高解析 GAN 模型（832×384）** 生成柴犬圖片。
-    
-- **上下文記憶**：  
-    使用 **Redis** 保存對話脈絡，使 AI 能理解多輪對話並維持語意連貫。
-    
-- **模型自動載入與卸載機制**：  
-    系統依時間自動管理模型生命週期，例如在 **18:00 後閒置時自動卸載模型**，  
-    並於 **8:00 後自動重新載入**；若在卸載期間收到請求，會即時加載模型以確保可用性。
-    
-- **前端介面 (Frontend)**：  
-    以 **React + Chakra UI** 製作響應式介面，支援桌面與行動裝置，  
-    並實作聊天室訊息串、使用者清單與即時訊息顯示等互動設計。
-    
+帶著這個念頭，我用半年時間，一個人從零打造了 **EchoMind** ——  
+一個能和 AI 一起聊天、一起探索、一起創造的實驗性聊天室。
 
 ---
 
-## 🧩 技術架構
+## 為什麼做 EchoMind？
 
-- **Frontend**：React、Chakra UI、STOMP over WebSocket
-    
-- **Backend**：Spring Boot (Java 17)、RabbitMQ、REST API
-    
-- **AI Service**：FastAPI (Python)、本地 LLM（LoRA 微調）
-    
-- **Embedding / RAG**：BAAI/bge-m3 嵌入、VCPG 向量索引、Chunk
-    
-- **ONNX 影像推論**：
-    
-    - 共 5 個模型：4 個 GAN 頭像模型 + 1 個高解析柴犬生成模型
-        
-    - 使用 **ONNX Runtime（CPU Execution Provider）** 進行 CPU 推論
-        
-- **Storage**：PostgreSQL、Redis
-    
-- **Deploy**：Kubernetes（Minikube + containerd）、Cloudflare Tunnel
-    
+我想用 AI，為快消失的聊天室文化點一把新火
+
+大多數 AI 都停留在一問一答、工具性、缺乏人味。  
+而聊天室，曾經是最有溫度的互動場域。
+
+我開始想像：
+
+🤖 如果 AI 是聊天室中的一個角色，而不是客服？  
+🔥 如果讓人類與 AI 一起聊天，而不是輪流輸入？  
+🎭 如果進聊天室就能擁有 AI 為你生成的獨特身份？
+
+我想用 AI 重新賦予「聊天」新的形式。  
+EchoMind 就是這個念頭的實驗。
 
 ---
 
-## 🖥️ 本地部署環境
+## 我如何讓 AI「像在聊天」
 
-系統運行於本人的 **Fedora Linux 工作站**：
 
-- **NVIDIA GeForce RTX 5060 Ti (16 GB VRAM)**
+我想讓 EchoMind 的 AI 更像一個會聊天的角色，因此做了三件事：
+
+- **Token 串流回覆（WebSocket）**  
+    AI 不是等想完才回，而是像人在打字，一句一句出來，節奏更自然
     
-- **CUDA 12.x / PyTorch 2.8**
+- **Redis 短期記憶（依使用者）**  
+    AI 會記住最近聊過的內容，不會每句都像第一次見面
     
-- 採用 **Minikube + containerd** 管理多容器服務，  
-    整合 Spring Boot 後端、FastAPI AI 服務、PostgreSQL、Redis、RabbitMQ 與本地 LLM 推論容器。
+- **RAG（Postgres + pgvector + BGE-M3）**  
+    用向量搜尋補強知識，不只陪聊，也能講得準、有內容
+
+- **   Fine tune  **  
+	    學習專門的知識如三國, 亞洲, 台灣等等
+	
+
+這 3 件事的目標很簡單：  
+**AI 不只是回你，而是能接你話、記得你、講得更貼近你。**
+
+---
+
+## 技術架構亮點
+
+EchoMind 的架構不是堆技術，而是為了能長大。
+
+- **前端：React + WebSocket**  
+    多人聊天室、即時互動、AI 串流都在這層體現
     
-- 外部訪問透過 **Cloudflare Tunnel** 提供安全連線。
+- **後端：Spring Boot**  
+    管理房間、消息轉發、使用者狀態，並直接在 Java 生態執行 **ONNX Runtime**  
+    GAN 生圖放這層，是為了更順的進場體驗與更低延遲，並使用cpu推論onnx
+    
+- **AI 層：FastAPI（LLM + RAG）**  
+    與聊天服務解耦，模型可替換，可擴展不同 AI 角色
     
 
 ---
 
-## 📦 模型掛載與持久化
+## 我為什麼用 ONNX 在 Spring Boot 做生成？
 
-- 使用 **Kubernetes PersistentVolume (PV)** 與 **PersistentVolumeClaim (PVC)** 掛載本地模型資料夾，  指向 Hugging Face 快取路徑與 LoRA 權重路徑。
+我把 **GAN 模型從 PyTorch 轉為 ONNX**，並在 Spring Boot 直接推理，而不是放 AI 層，原因有兩個：
+
+- CPU推論我訓練的Gan速度非常快
+- 讓「進入聊天室就拿到角色」這件事更即時、更順暢。
+
+這是一個 **體驗優先 × 架構思考** 的取捨：
+
+- 不用跨服務請求 → 延遲更低
     
-- 採用 `hostPath` 與 `storageClassName: manual` 靜態綁定，確保容器重啟後模型可直接使用，  無需重新下載權重，實現本地高效推論。
+- 角色生成與登入體驗緊密結合
+    
+- AI 層維持乾淨，專注對話與 RAG
     
 ---
 
-## 🧠 模型訓練與技術挑戰
+### 部署與對外體驗：Cloudflare Pages × minikube × Cloudflare Tunnel
 
-- 所有頭像與柴犬生成模型皆由本人以 **生成式對抗網路（GAN）** 自行訓練完成。
+我希望 EchoMind 不只是「我自己能跑」，而是任何人都能直接體驗。  
+因此我採用了前後端分離且具產品化思維的部署方式：
+
+- **前端（React）**：部署於 **Cloudflare Pages**，由全球 CDN 加速提供 HTTPS 入口，同時具備 SEO 友善特性，讓使用者第一眼就像在使用正式產品
     
-- 採用 **WGAN-GP（含 Gradient Penalty）** 架構，並結合 **EMA (Exponential Moving Average)** 穩定生成品質。
+- **後端（Spring Boot + ONNX、生圖、FastAPI、Postgres、Redis、Rabbitmq）**：運行在本機 **minikube**，保持低成本、高掌控度
     
-- 使用 **DiffAug** 資料增強與多階段訓練策略：  
-    先訓練 278×128 低解析模型，再逐步升級至 832×384 高解析度以強化細節。
-    
-- 透過 **梯度累積（Gradient Accumulation）** 與顯存優化策略（控制 batch size、釋放計算圖），  在單張 GPU 上完成高解析訓練。
-    
-- 訓練完成後，以 `torch.onnx.export()` 導出生成器為 **ONNX 模型**，整合至 Spring Boot 作 CPU 推論。
+- **對外連線**：透過 **Cloudflare Tunnel** 將後端 API 安全公開成自有子網域 **api.bardcloud.online**，不需公網 IP，也不用自己處理 SSL
     
 
 ---
 
-## 架構圖
+## 如果你願意，我希望你能親自進來玩玩
 
-<a href="https://img.bardcloud.online/ai_project/聊天室架構.png"><img src="https://img.bardcloud.online/ai_project/聊天室架構.png" alt="2" border="0"></a>
+🔗 Demo 入口：<a href="https://chat.bardcloud.online" target="_blank">AI聊天室專案-EchoMind</a>
 
-<a href="https://img.bardcloud.online/ai_project/雙向聊天.png"><img src="https://img.bardcloud.online/ai_project/雙向聊天.png" alt="2" border="0"></a>
 
-<a href="https://img.bardcloud.online/ai_project/頭像由後端自動生成.png"><img src="https://img.bardcloud.online/ai_project/頭像由後端自動生成.png" alt="2" border="0"></a>
+💻  GitHub：<a href="https://github.com/lipeijia/chat-room" target="_blank">前後端原碼</a>, <a href="https://github.com/xcv11xcv22/chat-room-bot" target="_blank">AI層原碼</a>
 
-<a href="https://img.bardcloud.online/ai_project/模組非同步處理.png"><img src="https://img.bardcloud.online/ai_project/AI 模組非同步處理.png" alt="2" border="0"></a>
-
-## 🔑 開發重點與特色
-
-- 實作 **RabbitMQ 串流回覆管線**（token 切片 → 併發傳遞 → 前端逐字渲染）。
+如果你想聊聊這個專案、AI、產品開發，或你覺得我們可以激出什麼火花，歡迎找我。
     
-- 建立 **RAG 模組**（BGE-M3 嵌入、Chunk/Overlap、VCPG 索引）。
-    
-- 針對文字生成模型進行 **LoRA 微調**（參數高效訓練），  
-    以特定領域語料（亞洲歷史、台灣文化、三國人物）強化模型理解與回答能力。
-    
-- 整合 **5 組自訓練的 ONNX GAN 模型** 至 Spring Boot，  
-    讓 Java 服務可直接以 **CPU 進行影像生成推論**，實現跨平台部署與低資源環境相容性。
-    
-- 以 **Redis** 實現長對話記憶機制，支援多輪上下文理解。
-    
-- 設計 **模型自動載入／卸載機制**，根據時間與請求動態管理模型資源，提升系統可利用性。
-    
-- 完成本地 **Kubernetes 容器化與對外部署流程**，包含 PV/PVC 靜態綁定與模型持久化配置。
+---
 
-##  📖 使用教學
+##   使用教學
 
 **要使用ai功能需選擇Ai為說話對象**
 ### 手機版

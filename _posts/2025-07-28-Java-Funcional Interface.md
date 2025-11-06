@@ -6,6 +6,7 @@ created: 2025-07-28T08:57:32
 modified: 2025-07-28T12:43:55
 ---
 # 介紹
+# 介紹
 
 引入 **Functional Interface（函數式介面）** 的目的，主要是為了引進 **函數式編程（Functional Programming）** 的特性，並解決 Java 傳統物件導向程式設計的一些限制。這個改變是從 Java 8 開始的一個重大語言演進
 
